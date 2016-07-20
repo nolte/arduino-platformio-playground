@@ -1,9 +1,14 @@
 language: python
 python:
-    - "2.7"
-
+- '2.7'
 install:
-    - python -c "$(curl -fsSL https://raw.githubusercontent.com/platformio/platformio/master/scripts/get-platformio.py)"
-
+- python -c "$(curl -fsSL https://raw.githubusercontent.com/platformio/platformio/master/scripts/get-platformio.py)"
 script:
-    - platformio ci src --project-conf platformio.ini --lib lib
+- platformio ci src --project-conf platformio.ini --lib lib
+notifications:
+  webhooks:
+    urls:
+    - https://api.keen.io/3.0/projects/578d609a80a7bd79bfd6cb0a/events/travisci?api_key=$keen_api_key
+env:
+  global:
+    secure: SaTXixwPksrXrCJQ5vyzpS+B21oDp2G6/tScRwR+WQQPkQMhGzmxqlp86aI3DX2NT2W9LHxPqVm3/j9e1ZetEjSrsE0NxrBkl/iDYhDvFLwzlEBz88cIBnJCxyOpd0bIvAiJBgXs/zeG+VqvUbi9lrSzdiX7FQvbnA4ayKJQol6EE6IajWsypsAQbXOtJUFXgZqPvfC4rOI4qp7yHlcXduyLuFBkJiK1BlHNOwoXKVSO5fDFj4bfM5WvAZ43Z7r11SmIcx1qqkpicKVjCz4NcUIMyDeJw7IH+uLqb2InFbKduQ1kxJ4WvN95B7qxsCVxKG9aE0u5312JrPUHCbL/eRy8b9iy0l+6qcGb/JbxvCjLfGyh4GUqd5kK7oCht3JEl/eE+prF9lMoTD5WHL7Ljt+NSnmomb5esRK4sb3kaJLUEL+4eEJZ14OUEZGZ28y/8mkmN6ONW3gIbQC0ZuhGxq1FNenmC9Q1MVu9CcoPhtjWY7aIWxV8CEuUTAfXi50j9RHOkTHvvbv4y7WhJHCI+AQ2iI0PAJ7gtca8uNVH+3kRKFaGNGEHletexWLqRuJ1yk3Dd7eLAYcJNaXIAzS/epV0+VhRfUvpiue+rMTtTdVgk1qnBo82RkDk6KzL98d75ektsRcJmrixU6WmmxCU9vhOom6/2IhHLW01dkNcxTA=
