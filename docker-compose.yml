@@ -1,0 +1,8 @@
+builder: 
+  build: .
+  working_dir: /iotsrc
+  volumes:
+    - ./src/:/iotsrc/src
+    - ./lib/:/iotsrc/libExt
+    - ./platformio.ini:/iotsrc/platformio.ini
+  command: "/iotsrc/src --project-conf platformio.ini --lib /iotsrc/libExt"
